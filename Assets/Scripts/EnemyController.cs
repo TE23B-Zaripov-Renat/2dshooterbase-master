@@ -9,6 +9,8 @@ public class EnemyController : MonoBehaviour
 
     [SerializeField]
     GameObject boomPrefab;
+
+
     void Start()
     {
         Vector2 newPos = new();
