@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
 
     
     float currentkills = 0;
+
+    [SerializeField]
     void Start()
     {
         currentHP = maxHP;
