@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class CoinSpawner : MonoBehaviour
+public class HealSpawner : MonoBehaviour
 {
     [SerializeField]
-    GameObject coinPrefab;
+    GameObject healPrefab;
     [SerializeField]
     float timeBetweenSpawns = 2f;
 
@@ -15,14 +15,14 @@ public class CoinSpawner : MonoBehaviour
 
         if (timer >= timeBetweenSpawns)
         {
-            SpawnCoin();
+            SpawnHeal();
             timer = 0f;
         }
     }
 
-    void SpawnCoin()
+    void SpawnHeal()
     {
         Vector2 spawnPos = new Vector2(Random.Range(-9f, 9f), 4f);
-        Instantiate(coinPrefab, spawnPos, Quaternion.identity);
+        Instantiate(healPrefab, spawnPos, Quaternion.identity);
     }
 }

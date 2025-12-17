@@ -18,7 +18,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
-
+        
         timeSinceLastSpawn += Time.deltaTime;
 
         if (timeSinceLastSpawn > timeBetweenSpawn)

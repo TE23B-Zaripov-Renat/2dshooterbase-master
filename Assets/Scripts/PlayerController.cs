@@ -25,10 +25,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     TMP_Text killsText;
 
-    
-    float currentkills = 0;
+    [SerializeField]
+    TMP_Text coinsText;
+
 
     [SerializeField]
+    float currentkills = 0;
+    float currentcoins = 0;
     void Start()
     {
         currentHP = maxHP;
@@ -36,6 +39,7 @@ public class PlayerController : MonoBehaviour
         hpSlider.value = currentHP;
 
         killsText.text = "Kills: " + currentkills;
+        coinsText.text = "Coins:" + currentcoins;
     }
 
     void Update()
@@ -87,5 +91,20 @@ public class PlayerController : MonoBehaviour
         killsText.text = "Kills: " + currentkills;
         print(currentkills);
     }
+    public void CollectedCoin()
+    {
+        currentcoins++;
+        coinsText.text = "Coins:" + currentcoins;
+        print(currentcoins);
+    }
+    public void CollectedHeal()
+    {
+        currentHP++;
+
+        if (currentHP > maxHP)
+            currentHP = maxHP;
+          hpSlider.value = currentHP;
+}
+
 }
 
