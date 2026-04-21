@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 9f4cc1fee3d52a04e8b5035394c393e1
+guid: 2e0280360666871458d5dfd224f98cc9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7851470227991654557
-    second: Spaceship_0
+      213: -2510476293373519475
+    second: New Piskel_0
   - first:
-      213: 5680876330281301099
-    second: Spaceship_1
+      213: 627625725489826318
+    second: New Piskel_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Spaceship_0
+      name: New Piskel_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 15
-        width: 16
-        height: 17
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d907fffc29606fc60800000000000000
-      internalID: 7851470227991654557
+      spriteID: d899e6cbc1ff82dd0800000000000000
+      internalID: -2510476293373519475
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spaceship_1
+      name: New Piskel_1
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 17
+        width: 32
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b64775f7ce686de40800000000000000
-      internalID: 5680876330281301099
+      spriteID: e0ac7b3a546c5b800800000000000000
+      internalID: 627625725489826318
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Spaceship_0: 7851470227991654557
-      Spaceship_1: 5680876330281301099
+      New Piskel_0: -2510476293373519475
+      New Piskel_1: 627625725489826318
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

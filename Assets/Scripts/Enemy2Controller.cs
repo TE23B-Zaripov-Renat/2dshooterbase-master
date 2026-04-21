@@ -33,11 +33,11 @@ public class Enemy2Controller : MonoBehaviour
         if (health <= 0)
         {
             Instantiate(boomPrefab, transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
 
             GameObject player = GameObject.Find("Ship");
             player.GetComponent<PlayerController>().KilledAnEnemy();
 
-            Destroy(gameObject); 
         }
     }
 }
