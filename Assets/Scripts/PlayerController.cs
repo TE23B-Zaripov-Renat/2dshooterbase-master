@@ -25,8 +25,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float currentkills = 0;
     float currentcoins = 0;
 
+    GameObject bossSlider;
+
     void Start()
     {
+        bossSlider = GameObject.Find("BossHP");
+        bossSlider.SetActive(false);
         currentHP = maxHP;
         hpSlider.maxValue = maxHP;
         hpSlider.value = currentHP;
@@ -84,6 +88,7 @@ public class PlayerController : MonoBehaviour
 
             if (currentkills >= 1 && !bossSpawned)
         {
+            bossSlider.SetActive(true);
             Instantiate(bossPrefab, new Vector2(0, 7), Quaternion.identity);
             bossSpawned = true;
         }
