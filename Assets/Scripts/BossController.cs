@@ -6,8 +6,9 @@ public class BossController : MonoBehaviour
     [SerializeField] int maxHP = 200;
     int currentHP;
 
-    
-    
+    [SerializeField]
+    GameObject boomPrefab;
+
     [SerializeField] Slider bossSlider;
 
     [SerializeField] GameObject enemyBoltPrefab;
@@ -19,7 +20,7 @@ public class BossController : MonoBehaviour
     {
         bossSlider = GameObject.Find("BossHP").GetComponent<Slider>();
 
-        
+
 
         currentHP = maxHP;
 
@@ -27,16 +28,16 @@ public class BossController : MonoBehaviour
         bossSlider.maxValue = maxHP;
         bossSlider.value = currentHP;
 
-        transform.position = new Vector2(0, 6);
+        transform.position = new Vector2(0, 3);
     }
 
     void Update()
     {
-        
+
         float moveX = Mathf.Sin(Time.time) * 3f;
         transform.position = new Vector2(moveX, transform.position.y);
 
-        
+
         shootTimer += Time.deltaTime;
 
         if (shootTimer > timeBetweenShots)
@@ -48,15 +49,15 @@ public class BossController : MonoBehaviour
 
     void Shoot()
     {
-        Instantiate(enemyBoltPrefab, transform.position, Quaternion.Euler(0, 0, 0));
-        Instantiate(enemyBoltPrefab, transform.position, Quaternion.Euler(0, 0, 30));
-        Instantiate(enemyBoltPrefab, transform.position, Quaternion.Euler(0, 0, -30));
+        Instantiate(enemyBoltPrefab, transform.position, Quaternion.Euler(0, 0, 180));
+        Instantiate(enemyBoltPrefab, transform.position, Quaternion.Euler(0, 0, 150));
+        Instantiate(enemyBoltPrefab, transform.position, Quaternion.Euler(0, 0, 210));
     }
 
     public void SetSlider(Slider slider)
-{
-    bossSlider = slider;
-}
+    {
+        bossSlider = slider;
+    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -73,5 +74,8 @@ public class BossController : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+        Instantiate(boomPrefab, transform.position, Quaternion.identity);
+        GameObject player = GameObject.Find("Ship");
     }
+    
 }

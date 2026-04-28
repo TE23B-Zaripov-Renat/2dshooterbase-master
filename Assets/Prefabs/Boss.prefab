@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5848012242762473766}
   m_Layer: 0
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,7 +137,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.0001, y: 0.0001}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &7980540908634245293
 Rigidbody2D:
@@ -178,7 +178,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ad3eee7519237c4d87ab92e662ae56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossController
-  maxHP: 200
+  maxHP: 10
+  boomPrefab: {fileID: 1052859802758272, guid: 7e5c5b1c1b18764459c69710c7dc4adc, type: 3}
   bossSlider: {fileID: 0}
   enemyBoltPrefab: {fileID: 7716941956576747618, guid: 92c7ca9a6867352479ce526b619ccfc2,
     type: 3}

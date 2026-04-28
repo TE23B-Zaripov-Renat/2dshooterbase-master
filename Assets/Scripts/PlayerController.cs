@@ -5,7 +5,7 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
-    
+    bool doubleShotActive = false;
     [SerializeField] GameObject bossPrefab;
     bool bossSpawned = false;
     [SerializeField] float speed = 5f;
@@ -56,7 +56,15 @@ public class PlayerController : MonoBehaviour
             AudioSource speaker = GetComponent<AudioSource>();
             speaker.Play();
 
-            Instantiate(boltPrefab, transform.position, Quaternion.identity);
+            if (doubleShotActive)
+            {
+                Instantiate(boltPrefab, transform.position + Vector3.left * 0.3f, Quaternion.identity);
+                Instantiate(boltPrefab, transform.position + Vector3.right * 0.3f, Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(boltPrefab, transform.position, Quaternion.identity);
+            }
             timeSinceLastShot = 0;
         }
     }
@@ -67,14 +75,25 @@ public class PlayerController : MonoBehaviour
         {
             currentHP--;
             hpSlider.value = currentHP;
-            // hpSlider.gameObject.SetActive(true);
 
             if (currentHP <= 0)
             {
                 SceneManager.LoadScene("GAMEOVER");
             }
         }
+        else if (collision.gameObject.CompareTag("Boss"))
+        {
+            currentHP--;
+            hpSlider.value = currentHP;
+
+            if (currentHP <= 0)
+            {
+                SceneManager.LoadScene("GAMEOVER");
+            }
+        }
+
     }
+
 
     public void KilledAnEnemy()
     {
@@ -82,17 +101,27 @@ public class PlayerController : MonoBehaviour
         killsText.text = "Kills: " + currentkills;
 
         if (currentkills >= 1)
-    {
-        hpSlider.gameObject.SetActive(true);
-    }
+        {
+            hpSlider.gameObject.SetActive(true);
+        }
 
-            if (currentkills >= 1 && !bossSpawned)
+        if (currentkills >= 1 && !bossSpawned)
         {
             bossSlider.SetActive(true);
             Instantiate(bossPrefab, new Vector2(0, 7), Quaternion.identity);
             bossSpawned = true;
         }
-    
+
+    }
+    public void TakeDamage()
+    {
+        currentHP--;
+        hpSlider.value = currentHP;
+
+        if (currentHP <= 0)
+        {
+            SceneManager.LoadScene("GAMEOVER");
+        }
     }
 
     public void CollectedCoin()
@@ -110,4 +139,9 @@ public class PlayerController : MonoBehaviour
 
         hpSlider.value = currentHP;
     }
+    
+    public void ActivateDoubleShot()
+{
+    doubleShotActive = true;
+}
 }

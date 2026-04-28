@@ -21,7 +21,7 @@ public class EnemyController : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         Vector2 movement = Vector2.down * EnemySpeed;
