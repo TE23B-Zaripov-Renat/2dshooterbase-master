@@ -16,15 +16,5 @@ public class EnemyBolt : MonoBehaviour
     }
     
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        
-        if (collision.CompareTag("Ship"))
-        {
-            PlayerController player = collision.GetComponent<PlayerController>();
-            player.TakeDamage();
 
-            Destroy(gameObject);
-        }
-    }
 }

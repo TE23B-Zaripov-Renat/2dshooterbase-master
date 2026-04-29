@@ -71,6 +71,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        print(collision.gameObject.tag);
         if (collision.gameObject.CompareTag("enemy"))
         {
             currentHP--;
@@ -85,6 +86,18 @@ public class PlayerController : MonoBehaviour
         {
             currentHP--;
             hpSlider.value = currentHP;
+
+            if (currentHP <= 0)
+            {
+                SceneManager.LoadScene("GAMEOVER");
+            }
+        }
+        else if (collision.gameObject.CompareTag("EnemyBullet"))
+        {
+            currentHP--;
+            hpSlider.value = currentHP;
+
+            Destroy(collision.gameObject);
 
             if (currentHP <= 0)
             {
@@ -113,16 +126,7 @@ public class PlayerController : MonoBehaviour
         }
 
     }
-    public void TakeDamage()
-    {
-        currentHP--;
-        hpSlider.value = currentHP;
-
-        if (currentHP <= 0)
-        {
-            SceneManager.LoadScene("GAMEOVER");
-        }
-    }
+    
 
     public void CollectedCoin()
     {
@@ -139,9 +143,9 @@ public class PlayerController : MonoBehaviour
 
         hpSlider.value = currentHP;
     }
-    
+
     public void ActivateDoubleShot()
-{
-    doubleShotActive = true;
-}
+    {
+        doubleShotActive = true;
+    }
 }
