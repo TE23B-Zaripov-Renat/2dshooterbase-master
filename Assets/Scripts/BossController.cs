@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class BossController : MonoBehaviour
 {
     [SerializeField] int maxHP = 200;
@@ -49,9 +49,19 @@ public class BossController : MonoBehaviour
 
     void Shoot()
     {
-        Instantiate(enemyBoltPrefab, transform.position, Quaternion.Euler(0, 0, 180));
-        Instantiate(enemyBoltPrefab, transform.position, Quaternion.Euler(0, 0, 150));
-        Instantiate(enemyBoltPrefab, transform.position, Quaternion.Euler(0, 0, 210));
+        float[] angles = { 180f, 150f, 210f };
+
+    for (int i = 0; i < angles.Length; i++)
+    {
+        Instantiate(
+            enemyBoltPrefab,
+            transform.position,
+            Quaternion.Euler(0, 0, angles[i])
+        );
+    }
+        // Instantiate(enemyBoltPrefab, transform.position, Quaternion.Euler(0, 0, 180));
+        // Instantiate(enemyBoltPrefab, transform.position, Quaternion.Euler(0, 0, 150));
+        // Instantiate(enemyBoltPrefab, transform.position, Quaternion.Euler(0, 0, 210));
     }
 
     public void SetSlider(Slider slider)
@@ -72,6 +82,7 @@ public class BossController : MonoBehaviour
             {
                 bossSlider.gameObject.SetActive(false);
                 Destroy(gameObject);
+                SceneManager.LoadScene("Win");
             }
         }
         Instantiate(boomPrefab, transform.position, Quaternion.identity);

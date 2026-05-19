@@ -14,5 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GameStart.unity
     guid: 9903f3eae308df6448dd77d0e0304ce3
+  - enabled: 1
+    path: Assets/Win.unity
+    guid: c80aee8014b96394595a84c00af7a8ad
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
